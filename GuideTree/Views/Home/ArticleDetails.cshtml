@@ -1,0 +1,28 @@
+﻿@model ArticleDetailModel
+<div class="cap">
+
+
+    <div class="detail-top-banner">
+    </div>
+    <div class="details-top">
+        <h1 class="title-bold ml-4">@Model.ArticleDetail.Data.ArticleTitle</h1>
+@*        @foreach (var item in Model.ArticleDetails)
+        {
+
+            <a asp-controller="home" asp-action="index" asp-route-category="@item." class="detail-category">@item.Name</a>
+        }*@
+    </div>
+    <div class="datail-main">
+
+        <div class="detail-img">
+            <img class="card-img" src="~/img/@Model.ArticleDetail.Data.ArticleImageUrl">
+        </div>
+
+        <div class="detail-body">
+            <p>@Model.ArticleDetail.Data.ArticleDescription</p>
+        </div>
+    </div>
+    <div class="detail-right-banner">
+
+    </div>
+</div>

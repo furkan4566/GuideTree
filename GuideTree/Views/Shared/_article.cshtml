@@ -1,0 +1,11 @@
+﻿@model Article
+<a asp-controller="Home" asp-action="ArticleDetails" asp-route-url="@Model.Url" class="link">
+  <div class="article">
+        <div class="article-image col-5"><img src="~/img/@Model.ImageUrl" class="card-img"></div>
+        <div class="article-body col-7">
+            <h5 class="card-title">@Model.Title</h5>
+            <p class="card-body">@Model.Description</p>
+        </div>
+  </div>
+</a>
+

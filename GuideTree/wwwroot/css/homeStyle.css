@@ -1,0 +1,128 @@
+﻿/*Index*/
+.article {
+    display:flex;
+    margin: 25px 25px;
+    border-radius: 5px;
+    height: 170px;
+}
+.article-body {
+    font-weight:600;
+    font-size:17px;
+    width: stretch;
+    word-wrap: break-word;
+}
+.article-body h5{
+    margin-right:10px;
+}
+.article-body p{
+    height:100px;
+    white-space:pre-wrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    padding:0px!important;
+    margin-top:5px!important;
+}
+.article-image{
+    width:100%;
+    height:100%;
+}
+
+.info {
+    margin: 15px;
+    border-radius:5px;
+}
+.info-header {
+    color:black;
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+}
+/*Contact*/
+#contact-div {
+    background-color:white;
+    padding: 50px;
+    border-radius: 5px;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0%,35%);
+}
+#context-inputs {
+    display: flex;
+    flex-direction: column;
+}
+#contact-input-message {
+    width: 500px;
+    height: 150px;
+}
+#contact-div_div p {
+    margin-bottom: 32px;
+}
+#contact-setting{
+    display:block;
+    visibility:visible;
+    height:31.5vh;
+    color:rgb(236, 236, 236);
+}
+/*Declared*/
+#declared-div {
+    width: 30%;
+    text-align: center;
+}
+#declared-div_div {
+    margin-top: 50px;
+    border: 3px solid black;
+    border-radius: 30px;
+    padding: 20px;
+}
+#declared-div_div p {
+  margin-bottom: 32px;
+}
+/*Mail*/
+#contact-mail {
+    border: 3px solid black;
+    border-radius: 30px;
+    margin:0 470px;
+}
+/*ArticleDetails*/
+.detail-img{
+  width:55%;
+  margin:15px;
+  margin-left:17rem;
+}
+.detail-body{
+    display:inline-block;
+    width:61%;
+    height:57vh;
+    margin-left:14rem;
+    white-space:pre-wrap;
+    overflow-wrap:break-word;
+    inline-size: 61%;
+    font-size:1.5rem;
+}
+.details-top {
+    width: 80% !important;
+}
+.detail-top-banner{
+    content:"";
+    width:100%;
+    height:250px;
+}
+.detail-category {
+    font-size: 1.5rem !important;
+    margin-left: 35px;
+    color: rgb(255, 0, 0);
+    font-weight: 600;
+}
+.detail-category:hover{
+    color:rgb(192, 14, 14);
+    text-decoration:none;
+}
+.datail-main {
+    width:80%;
+}
+/*.datail-main{
+    width:20%;
+    content:"";
+    height:300px;
+}*/

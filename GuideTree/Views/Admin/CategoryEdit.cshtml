@@ -1,0 +1,98 @@
+﻿@model CategoryModel
+<h1 class="h3">Edit  Category</h1>
+<hr>
+<div class="row">
+    <div class="col-md-4">
+      <form asp-controller="Admin" asp-action="CategoryEdit" method="POST">
+    <input type="hidden" asp-for="CategoryId">
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label" asp-for="Name"></label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="Name">
+            <span asp-validation-for="Name"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label" asp-for="Url"></label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="Url">
+            <span asp-validation-for="Url"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10 offset-sm-2">
+            <button type="submit" class="btn btn-primary">Save Article</button>
+        </div>
+    </div>
+            <div id="articles">
+                @for (int i = 0; i < Model.Articles.Count; i++)
+                {
+                    <input type="hidden" name="Articles[@i].ArticleId" value="@Model.Articles[@i].ArticleId">
+                    <input type="hidden" name="Articles[@i].Title" value="@Model.Articles[@i].Title">
+                    <input type="hidden" name="Articles[@i].Description" value="@Model.Articles[@i].Description">
+                    <input type="hidden" name="Articles[@i].IsHome" value="@Model.Articles[@i].IsHome">
+                }
+            </div>
+</form>
+   </div>
+   <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-12">
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>Id</td>
+                            <td>Name</td>
+                            <td>Description</td>
+                            <td>Langue</td>
+                            <td>Ana sayfa</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Articles.Count > 0)
+                        {
+                            @foreach (var item in Model.Articles)
+                            {
+                                <tr>
+                                    <td>@item.ArticleId</td>
+                                    <td>@item.Title</td>
+                                    <td>@item.Description</td>
+                                    <td>
+                                        @if (item.IsHome)
+                                        {
+                                            <p>aktif</p>
+                                        }
+                                        else
+                                        {
+                                            <p>pasif</p>
+                                        }
+                                    </td>
+                                    <td>
+                                        <a href="/admin/articles/@item.ArticleId" class="btn btn-primary btn-sm mr-2">Edit</a>@*controller/action/asp-route- eşit bir hreftir*@
+
+                                        <form action="/admin/deletefromcategory" style="display:inline;" method="POST">
+                                            <input type="hidden" name="articleId" value="@item.ArticleId">
+                                            <input type="hidden" name="categoryId" value="@Model.CategoryId">
+                                            <button type="submit" class="btn btn-danger btn-sm mr-2">Delete</button>
+                                        </form>
+
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <div class="alert alert-warning "><h2>Makale yok LA</h2></div>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+   </div>
+</div>
+@section Scripts
+    {
+    <script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

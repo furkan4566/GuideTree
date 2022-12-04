@@ -1,0 +1,53 @@
+﻿@model ArticleListViewModel
+<div class="row">
+        <div class="col-md-12">
+            <h1>Admin Article</h1>
+            <hr>
+            <table class="table table-bordered">
+                 <thead >
+                     <tr>
+                          <td>Id</td>
+                          <td>Name</td>
+                          <td>Description</td>
+                          <td>Langue</td>
+                          <td>Ana sayfa</td>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     @if(Model.Articles.Data.Count>0)
+                     {
+                        @foreach (var item in Model.Articles.Data)
+                         {
+                           <tr>
+                              <td>@item.ArticleId</td>
+                              <td>@item.Title</td>
+                              <td>@item.Description</td>
+                              <td>
+                                  @if(item.IsHome)
+                                  {
+                                      <p>aktif</p>
+                                  }else
+                                  {
+                                      <p>pasif</p>
+                                  }
+                              </td>
+                              <td>
+                                <a href="/admin/articles/@item.ArticleId" class="btn btn-primary btn-sm mr-2">Edit</a>@*controller/action/asp-route- eşit bir hreftir*@
+
+                                <form action="/admin/deletearticle" style="display:inline;" method="POST">
+                                    <input type="hidden" name="ArticleId" value="@item.ArticleId">
+                                    <button type="submit" class="btn btn-danger btn-sm mr-2">Delete</button>
+                                </form>
+
+                              </td>
+                          </tr>
+                    }
+                }
+                else{
+                     <div class="alert alert-warning "><h2>Makale yok LA</h2></div>
+                }
+                 </tbody>
+            </table>
+            <a href="/admin/createArticle" class="btn btn-primary">Add Article</a>
+        </div>
+</div>

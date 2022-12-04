@@ -1,0 +1,27 @@
+﻿@model ArticleListViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+@*yeni sayfa oluşturmaktansa index sayfasında ürünler degişsin*@
+<section>
+    @*Section-2*@
+    <div class="flex">
+        <div class="col-2">
+            @await Component.InvokeAsync("Categories")
+            <partial name="_search">
+        </div>
+        <div class="flex col-10">
+            @foreach (var article in Model.Articles.Data)
+            {
+                <div class=" col_1 article">
+                    @await Html.PartialAsync("_article",article)
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+
+
+@*Özel bölüm(güzel sözler)*@

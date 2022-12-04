@@ -1,0 +1,66 @@
+﻿@model ArticleListViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<section>
+    @*Section-1*@
+    <div class="row">
+        <div class="card col">
+            <h5 class="card-header">Rehber Ağacı Amacı Nedir</h5>
+            <p class="card-body">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        </div>
+        <div class="card col">
+            <h5 class="card-header">Rehber Ağacı Uyarı!!!</h5>
+            <p class="card-body">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        </div>
+    </div>
+    @*Section-2*@
+    <div class="flex">
+        <div class="col-2">
+            @await Component.InvokeAsync("Categories")
+            <partial name="_search">
+        </div>
+        <div class="flex col-10">
+            @foreach (var article in Model.Articles.Data)
+            {
+                <div class=" col_1 article">
+                    @await Html.PartialAsync("_article",article)
+                </div>
+            }
+        </div>
+        <div class="row">
+            <div class="col">
+                <nav aria-label="Page navigation example" class="text-center">
+                    <ul class="pagination">
+                        @for (int i = 0; i < Model.PageInfo.TotalPages(); i++)
+                        {
+                            @if (String.IsNullOrEmpty(Model.PageInfo.CurrentCategory))//seçilen kategori olup olmadığı kontrol eder
+                            {
+                                <li class="page-item @(Model.PageInfo.CurrentPage==i+1? "active":" ")">
+                                    <a class="page-link" href="/articles?page=@(i+1)">
+                                        @(i + 1)
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="page-item @(Model.PageInfo.CurrentPage==i+1? "active":" ")">
+                                    @*ternary operatörü *@
+                                    <a class="page-link" href="/articles/@Model.PageInfo.CurrentCategory?page=@(i+1)">
+                                        @(i + 1)
+                                    </a>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+@*Özel bölüm(güzel sözler)*@

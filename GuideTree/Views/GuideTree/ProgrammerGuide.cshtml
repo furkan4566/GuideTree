@@ -1,0 +1,35 @@
+﻿@model SoftwareLangueListViewModel
+@{Layout = "_Layout2";}
+<style>
+    body {
+        background-color: rgb(34, 34, 34);
+    }
+</style>
+ <section>
+   <div id="second-branch">
+    <div class="btn-title-prog" id="software">
+            Yazılım
+    </div>
+        <div id="second-branch_div" class="row">
+
+           @foreach (var item in Model.softwareBranchs)
+            {
+                <div class="btn-prog col">@item.Name</div>
+                @foreach (var item2 in Model.softwareLangues)
+                {
+                    @await Html.PartialAsync("_softwareLangue",item2)
+                }
+            }
+        </div>
+
+
+    <div id="warning-click">
+            Tıklayın>
+     </div>
+
+
+   <div id="warning-branch">
+        <div>a</div>
+     </div>
+</section>
+

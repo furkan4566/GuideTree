@@ -1,0 +1,132 @@
+﻿*{
+    margin:0;
+    padding:0;
+}
+:root {
+    --maincolor: rgb(97, 193, 30);
+}
+.cap{
+    margin-left:50px;
+}
+img {
+    width: 1.5rem;
+}
+.op-font{
+    opacity: 0.7;
+}
+.text-bold{
+    font-size:1.8rem;
+}
+.title-bold{
+    font-size:3.5rem;
+    margin:5px;
+}
+.text-p{
+    font-size:1.4rem;
+}
+.title {
+    display: inline-block;
+    margin-bottom: 20px;
+    border-bottom: 2px black solid;
+    color: /*rgb(245, 125, 125)*/ rgb(36, 39, 74);
+}
+.pl-6 {
+    padding-left:100px;
+}
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+.col_1{
+    flex: 0 0 45%;
+    max-width: 45%;
+}
+/*BUTON CSS*/
+.btn-title-prog {
+    display: inline-block;
+    color: white !important;
+    background-color: rgb(68, 43, 2);
+    padding: 8px 49px;
+    margin: 0 6px 5px;
+    border: 1px white solid;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 8px 8px 10px 2px rgb(68, 43, 2);
+    position: relative;
+    top: 15px;
+    left: 43.8%;
+}
+
+.btn-prog {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    color: white !important;
+    background-color: rgba(123, 55, 7, 0.845);
+    padding: 8px 10px;
+    margin-right:10px!important;
+    margin-left: 10px !important;
+    border: 1px white solid;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 8px 8px 10px 2px rgb(130 52 12);
+}
+
+.btn-prog-second {
+    display: inline-block;
+    width: 125px;
+    color: white !important;
+    background-color: rgb(73, 108, 73);
+    padding: 10px 0;
+    margin: 0px 25px;
+    border: 1px white solid;
+    border-bottom-left-radius: 60px;
+    border-top-right-radius: 60px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 8px 8px 10px 2px rgb(14, 71, 5);
+}
+.btn-prog:hover {
+    background-color: rgb(130, 129, 129,0.8);
+}
+#web {
+    left: 38rem;
+}
+#mobil {
+    left: 25.3rem;
+}
+#oyun {
+    left: 12.7rem;
+}
+#siber{
+    left:-12.7rem;
+}
+#yapayzeka {
+    left: -25.3rem;
+}
+#veribilimi {
+    left: 38rem;
+}
+.btn-prog-second-default {
+    display: inline !important;
+    top: 0;
+    left: 0 !important;
+}
+.link{
+    color:black!important;
+    text-decoration:none!important;
+}
+.link:hover{
+    opacity:1;
+}

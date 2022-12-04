@@ -1,0 +1,78 @@
+﻿#navbarGuide-div{
+
+}
+#navbarGuide-div
+.nav-item {
+   color: white !important;
+   opacity: 1 !important;
+   border: 1px solid white;
+   border-radius: 5px;
+   box-shadow: 5px 5px 5px 1px  rgb(44,44, 44);
+}
+.navbar-brand {
+    margin-right: 130px;
+}
+.navbar-nav li {
+    margin-right: 50px;
+}
+.nav-link {
+    font-size: 1.4rem;
+    color: white;
+    font-weight: 600;
+}
+.nav-link:hover{
+    color:black!important;
+    text-shadow:1px 1px 3px white;
+}
+#navbar-div {
+    background-color: rgb(239, 239, 239);
+}
+#navbar-div .nav-link{
+    color:black!important;
+}
+/*Footor*/
+#footer_div {
+    height: 70px;
+    margin-right: 0px !important;
+    margin-top:20px;
+    background-color:rgb(237, 237, 237);
+}
+#footer_logo {
+    text-align: center;
+}
+/*Footor2*/
+#footer2_div {
+    height: 70px;
+    margin-right: 0px !important;
+    background-color: rgb(36, 39, 74);
+}
+#index-category {
+    width: 150px;
+    text-align: center;
+    border: 1px black solid;
+    background-color: rgb(44, 44, 44);
+    padding: 3px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 35px;
+    margin-bottom: 5px;
+    color:white!important;
+}
+#index-category:hover {
+    color:black!important;
+    text-decoration: none;
+    text-shadow: 2px 2px 3px white;
+}
+#cap-category{
+ border-bottom:1px rgb(128, 128, 128) solid;
+  justify-content:center;
+}
+#cap-category a{
+    margin-right:25px;
+    transition:all .5s ease;
+}
+#cap-category a:hover{
+    color:rgb(148, 148, 148)!important;
+    text-decoration:underline!important;
+    margin-top:-25px!important;
+}

@@ -1,0 +1,78 @@
+﻿@model ArticleModel
+<h1 class="h3">Edit  Article//Çalışmıyor</h1>
+<hr>
+<form asp-controller="Admin" asp-action="ArticleEdit" method="POST" enctype="multipart/form-data">@*enctype="mult.." dosyayı server a taşımayı saglar*@
+    <div asp-validation-summary="All" class="text-danger"></div>
+  <div class="row">
+    <div class="col-8">
+            <input type="hidden" asp-for="ArticleId">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" asp-for="Title"></label>
+                <span asp-validation-for="Title" class="text-danger"></span>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="Title">
+                </div>
+            </div>
+            <div class="form-group row" >
+                <label class="col-sm-2 col-form-label" asp-for="Url"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="Url">
+                    <span asp-validation-for="Url" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" asp-for="Description"></label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" asp-for="Description"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" asp-for="ImageUrl"></label>
+                <div class="col-sm-10">
+                    <input type="hidden" asp-for="ImageUrl">
+                    <img src="~/img/@Model.ImageUrl">
+                     <input type="file" name="file">    @*//name asp-controller daki karşılıgıdır.controller da file parametresi hangisi alırsa burdaki file orada tanınır*@
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-primary">Save Article</button>
+                </div>
+            </div>
+
+
+    </div>
+    <div class="col-2">
+
+        @for (int i = 0; i < Model.SelectedCategories.Count; i++)
+         {
+             <input type="hidden" name="SelectedCategories[@i].CategoryId" value="@Model.SelectedCategories[@i].CategoryId">
+             <input type="hidden" name="SelectedCategories[@i].Name" value="@Model.SelectedCategories[@i].Name">
+         }
+
+           @foreach (var item in Model.Categories){
+               <div class="custom-control custom-checkbox">
+                   <input type="checkbox" class="custom-control-input"
+                   value="@item.CategoryId"
+                   name="categoryIds"
+                   id="category_@(item.CategoryId)"
+                   @(Model.SelectedCategories.Any(i=>i.CategoryId==item.CategoryId)?"checked":"") > 
+                   <label class="custom-control-label" for="category_@(item.CategoryId)">@item.Name</label>
+               </div>
+            }
+            <hr>
+            <div class="custom-control custom-checkbox">
+                <input asp-for="IsHome" type="checkbox" class="custom-control-input">
+                <label asp-for="IsHome" class="custom-control-label"></label>
+            </div>
+          @*value her category için tek tek döner//name her cateogry için döner ve dizi halinde alınabilir*@
+          @*name bilgisi controller da IActionResult'da karşılanır parametre ile'*@
+    </div>
+  </div>
+</form>
+@section Scripts
+    {
+    <script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

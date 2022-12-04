@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GuideTree</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/utility.css" />
+    <link rel="stylesheet" href="~/css/homeStyle.css" />
+    <link rel="stylesheet" href="~/css/sharedStyle.css" />
+    <link rel="stylesheet" href="~/css/guideStyle.css" />
+</head>
+<body>
+    @await Html.PartialAsync("_navbar")
+
+    <div @*class="container"*@>
+        <main role="main" class="pb-3">
+            @if (TempData["message"] != null)
+            {
+                var message = JsonConvert.DeserializeObject<AlertMessage>(TempData["message"] as String);
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-@message.AlertType font-weight-bolder text-center">
+                              @message.Message
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @RenderBody()
+        </main>
+    </div>
+
+    @await Html.PartialAsync("_footer")
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    @RenderSection("Scripts",false)
+</body>
+</html>
